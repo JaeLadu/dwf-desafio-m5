@@ -1,13 +1,10 @@
 function mountWelcome(root) {
    const title = document.createElement("title-comp");
-   title.textContent = "Piedra, Papel o Tijera";
-   title.addEventListener("click", () => {
-      console.log("click");
-   });
+   title.textContent = "Piedra, Papel <span class='ligth'>ó</span> Tijera";
 
    const button = document.createElement("button-comp");
    button.setAttribute("text", "Empezar");
-   button.setAttribute("target", "/desdeboton");
+   button.setAttribute("target", "/instructions");
 
    const moveSelector = document.createElement("move-selector-comp");
 
@@ -23,11 +20,12 @@ function mountWelcome(root) {
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      
+      gap: 11vh;
    }
    `;
 
    container.append(title, button, moveSelector);
+   root.innerHTML = "";
    root.append(container, style);
 }
 export { mountWelcome };

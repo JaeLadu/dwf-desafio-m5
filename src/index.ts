@@ -1,5 +1,6 @@
 import { initButton } from "./components/button";
 import { initMoveSelector } from "./components/move-selector";
+import { initSubtitle } from "./components/subtitle";
 import { initTitle } from "./components/title";
 import { handleRoute } from "./router";
 
@@ -7,6 +8,7 @@ import { handleRoute } from "./router";
    initTitle();
    initButton();
    initMoveSelector();
+   initSubtitle();
    handleRoute(location.pathname);
 })();
 

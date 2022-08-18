@@ -10,16 +10,22 @@ function initTitle() {
             const content = document.createElement("h1");
             const style = document.createElement("style");
 
-            content.textContent = this.textContent || "Un titulo";
+            content.innerHTML = this.textContent || "Un titulo";
 
             style.textContent = `
                 h1{
                 color: #009048;
+                font-size:80px;
+                margin: 0;
+               }
+               
+               h1>span.ligth{
+                  color: #91CCAF;
+                  
                 }
                 `;
-            div.innerHTML = "";
-            div.append(content, style);
-            this.shadow.append(div);
+            div.append(content);
+            this.shadow.append(div, style);
          }
       }
    }
