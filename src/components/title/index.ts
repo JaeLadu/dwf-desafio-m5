@@ -5,18 +5,22 @@ function initTitle() {
       }
       shadow = this.attachShadow({ mode: "open" });
       connectedCallback() {
-         const content = document.createElement("h1");
-         const style = document.createElement("style");
+         if (this.isConnected) {
+            const div = document.createElement("div");
+            const content = document.createElement("h1");
+            const style = document.createElement("style");
 
-         content.textContent = this.textContent || "Un titulo";
+            content.textContent = this.textContent || "Un titulo";
 
-         style.textContent = `
-             h1{
-                 color: #009048;
+            style.textContent = `
+                h1{
+                color: #009048;
                 }
                 `;
-         this.shadow.children;
-         this.shadow.append(content, style);
+            div.innerHTML = "";
+            div.append(content, style);
+            this.shadow.append(div);
+         }
       }
    }
 

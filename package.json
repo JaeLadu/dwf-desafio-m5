@@ -4,6 +4,7 @@
    "main": "index.js",
    "license": "MIT",
    "devDependencies": {
+      "@types/node": "^18.7.6",
       "parcel": "^2.7.0"
    },
    "scripts": {
