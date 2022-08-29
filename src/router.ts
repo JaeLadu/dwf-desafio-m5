@@ -1,5 +1,6 @@
 import { mountWelcome } from "./pages/welcome";
 import { mountInstructions } from "./pages/instructions";
+import { mountPlay } from "./pages/play";
 
 const routes = [
    {
@@ -9,6 +10,10 @@ const routes = [
    {
       route: /\/dwf-desafio-m5\/instructions|\/instructions$/,
       do: mountInstructions,
+   },
+   {
+      route: /\/dwf-desafio-m5\/play|\/play$/,
+      do: mountPlay,
    },
 ];
 

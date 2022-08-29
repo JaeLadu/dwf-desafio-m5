@@ -1,16 +1,12 @@
-function mountInstructions(root) {
-   const title = document.createElement("subtitle-comp");
-   title.textContent =
-      "Presioná jugar y elegí: piedra, papel o tijera antes de que pasen los 3 segundos.";
-
-   const button = document.createElement("button-comp");
-   button.setAttribute("text", "Jugar!");
-   button.setAttribute("target", "/play");
+function mountPlay(root) {
+   const counter = document.createElement("counter-comp");
 
    const moveSelector = document.createElement("move-selector-comp");
+   moveSelector.setAttribute("big", "yes");
 
    const container = document.createElement("div");
    container.classList.add("container");
+   // counter.classList.add("counter");
 
    const style = document.createElement("style");
    style.textContent = `
@@ -21,12 +17,11 @@ function mountInstructions(root) {
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      gap: 11vh;
    }
    `;
 
-   container.append(title, button, moveSelector);
    root.innerHTML = "";
+   container.append(counter, moveSelector);
    root.append(container, style);
 }
-export { mountInstructions };
+export { mountPlay };
