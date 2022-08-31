@@ -8,6 +8,7 @@ function initMoveSelector() {
          super();
       }
       shadow = this.attachShadow({ mode: "open" });
+
       connectedCallback() {
          if (this.isConnected) {
             const container = document.createElement("div");
@@ -15,13 +16,35 @@ function initMoveSelector() {
             if (this.getAttribute("big") == "yes") {
                container.classList.add("big");
             }
+            container.addEventListener("selected", (e: CustomEventInit) => {
+               const plays = container.querySelectorAll(`.play`);
+               plays.forEach((p) => {
+                  p.classList.remove("unselected");
+                  if (p.getAttribute("play") !== e.detail) {
+                     p.classList.add("unselected");
+                  }
+               });
+            });
+
+            const piedraSelected = new CustomEvent("selected", {
+               bubbles: true,
+               detail: "piedra",
+            });
+            const papelSelected = new CustomEvent("selected", {
+               bubbles: true,
+               detail: "papel",
+            });
+            const tijeraSelected = new CustomEvent("selected", {
+               bubbles: true,
+               detail: "tijera",
+            });
 
             const piedra = document.createElement("img");
             piedra.classList.add("play");
             piedra.setAttribute("src", piedraImg);
             piedra.setAttribute("play", "piedra");
             piedra.addEventListener("click", () => {
-               console.log(piedra.getAttribute("play"));
+               piedra.dispatchEvent(piedraSelected);
             });
 
             const papel = document.createElement("img");
@@ -29,7 +52,7 @@ function initMoveSelector() {
             papel.setAttribute("src", papelImg);
             papel.setAttribute("play", "papel");
             papel.addEventListener("click", () => {
-               console.log(papel.getAttribute("play"));
+               papel.dispatchEvent(papelSelected);
             });
 
             const tijera = document.createElement("img");
@@ -37,7 +60,7 @@ function initMoveSelector() {
             tijera.setAttribute("src", tijeraImg);
             tijera.setAttribute("play", "tijera");
             tijera.addEventListener("click", () => {
-               console.log(tijera.getAttribute("play"));
+               tijera.dispatchEvent(tijeraSelected);
             });
 
             const style = document.createElement("style");
@@ -53,6 +76,9 @@ function initMoveSelector() {
             }
             .play{
                height:100%;
+            }
+            .unselected{
+               opacity: 0.5;
             }
             `;
 

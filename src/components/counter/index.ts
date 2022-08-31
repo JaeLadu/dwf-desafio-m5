@@ -16,6 +16,17 @@ function initCounter() {
 
             container.textContent = this.getAttribute("count");
 
+            setInterval(() => {
+               if (this.getAttribute("count") !== "0") {
+                  this.setAttribute(
+                     "count",
+                     (Number(this.getAttribute("count")) - 1).toString()
+                  );
+               } else {
+                  clearInterval();
+               }
+            }, 1000);
+
             const style = document.createElement("style");
             style.textContent = `
             div{
@@ -25,17 +36,6 @@ function initCounter() {
                font-weight: 700;
             }
             `;
-
-            setInterval(() => {
-               if (this.getAttribute("count") !== "1") {
-                  this.setAttribute(
-                     "count",
-                     (Number(this.getAttribute("count")) - 1).toString()
-                  );
-               } else {
-                  clearInterval();
-               }
-            }, 1000);
 
             this.shadow.append(container, style);
          }

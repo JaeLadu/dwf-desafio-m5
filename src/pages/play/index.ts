@@ -3,6 +3,12 @@ function mountPlay(root) {
 
    const moveSelector = document.createElement("move-selector-comp");
    moveSelector.setAttribute("big", "yes");
+   moveSelector.shadowRoot?.addEventListener(
+      "selected",
+      (e: CustomEventInit) => {
+         console.log(e.detail);
+      }
+   );
 
    const container = document.createElement("div");
    container.classList.add("container");
