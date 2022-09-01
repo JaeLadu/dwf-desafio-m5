@@ -2,6 +2,7 @@ import { mountWelcome } from "./pages/welcome";
 import { mountInstructions } from "./pages/instructions";
 import { mountPlay } from "./pages/play";
 import { mountResult } from "./pages/result";
+import { mountScore } from "./pages/score";
 
 const routes = [
    {
@@ -19,6 +20,10 @@ const routes = [
    {
       route: /\/dwf-desafio-m5\/result|\/result$/,
       do: mountResult,
+   },
+   {
+      route: /\/dwf-desafio-m5\/score|\/score$/,
+      do: mountScore,
    },
 ];
 

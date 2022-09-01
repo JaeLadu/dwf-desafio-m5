@@ -9,6 +9,8 @@ function initCounter() {
       shadow = this.attachShadow({ mode: "open" });
 
       connectedCallback() {
+         const timeUp = new Event("timeUp", { bubbles: true });
+
          if (this.isConnected) {
             const container = document.createElement("div");
 
@@ -16,14 +18,15 @@ function initCounter() {
 
             container.textContent = this.getAttribute("count");
 
-            setInterval(() => {
+            const interval = setInterval(() => {
                if (this.getAttribute("count") !== "0") {
                   this.setAttribute(
                      "count",
                      (Number(this.getAttribute("count")) - 1).toString()
                   );
                } else {
-                  clearInterval();
+                  this.dispatchEvent(timeUp);
+                  clearInterval(interval);
                }
             }, 1000);
 

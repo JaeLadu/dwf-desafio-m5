@@ -68,7 +68,7 @@ function initMoveSelector() {
             .container{
                 display: flex;
                 align-items:flex-end;
-                gap: 45px;
+                gap: 20px;
                 height:100%
             }
             .big{

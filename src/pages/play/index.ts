@@ -1,18 +1,24 @@
+import { handleRoute } from "../../router";
+import { state } from "../../state";
+
 function mountPlay(root) {
    const counter = document.createElement("counter-comp");
+   counter.addEventListener("timeUp", (e) => {
+      history.pushState({}, "", "/result");
+      handleRoute(location.pathname);
+   });
 
    const moveSelector = document.createElement("move-selector-comp");
    moveSelector.setAttribute("big", "yes");
    moveSelector.shadowRoot?.addEventListener(
       "selected",
       (e: CustomEventInit) => {
-         console.log(e.detail);
+         state.SelectPlay(e.detail);
       }
    );
 
    const container = document.createElement("div");
    container.classList.add("container");
-   // counter.classList.add("counter");
 
    const style = document.createElement("style");
    style.textContent = `
