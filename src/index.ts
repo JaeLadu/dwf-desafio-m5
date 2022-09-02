@@ -4,8 +4,10 @@ import { initMoveSelector } from "./components/move-selector";
 import { initSubtitle } from "./components/subtitle";
 import { initTitle } from "./components/title";
 import { handleRoute } from "./router";
+import { state } from "./state";
 
 (() => {
+   state.syncWithLocal();
    initTitle();
    initButton();
    initMoveSelector();

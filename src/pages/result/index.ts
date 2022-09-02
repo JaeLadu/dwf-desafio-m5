@@ -8,7 +8,7 @@ function mountResult(root) {
    setTimeout(() => {
       history.pushState({}, "", "/score");
       handleRoute(location.pathname);
-   }, 3000);
+   }, 2000);
 
    const result = state.getResult();
 
@@ -47,15 +47,15 @@ function mountResult(root) {
    .container{
     width:100%;
    }
-   img{
-    height:50vh;
-    position: absolute;
-   }
-   .computer{
-    top: -15px;
-    transform: rotate(180deg);
-   }
-   .player{
+    .computer{
+       height:50vh;
+       position: absolute;
+       top: -15px;
+       transform: rotate(180deg);
+    }
+    .player{
+       height:50vh;
+       position: absolute;
     bottom: -15px;
    }
    `;

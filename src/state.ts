@@ -5,13 +5,17 @@ const state = {
    },
 
    currentGame: {
-      playerMove: "papel",
+      playerMove: "",
       computerMove: "",
       result: "",
    },
 
    getScore() {
       return this.score;
+   },
+
+   getCurrentGame() {
+      return this.currentGame;
    },
 
    SelectPlay(newPlay: string) {
@@ -39,7 +43,7 @@ const state = {
 
       this.updateScore(this.currentGame.result);
 
-      return this.currentGame;
+      return this.getCurrentGame();
    },
 
    updateScore(result: "win" | "lose" | "tie") {
@@ -48,6 +52,18 @@ const state = {
       }
       if (result == "win") {
          this.score.player++;
+      }
+
+      localStorage.setItem(
+         "Rock, paper, scissors score",
+         JSON.stringify(this.getScore())
+      );
+   },
+
+   syncWithLocal() {
+      const score = localStorage.getItem("Rock, paper, scissors score");
+      if (score) {
+         this.score = JSON.parse(score);
       }
    },
 };
