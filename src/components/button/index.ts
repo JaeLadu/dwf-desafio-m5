@@ -33,6 +33,11 @@ function initButton() {
                font-size: 45px;
                color: #D8FCFC;
             }
+            @media screen and (min-width: 400px){
+               button{
+                  min-width:0;
+               }
+            }
             `;
 
             this.shadow.append(button, style);

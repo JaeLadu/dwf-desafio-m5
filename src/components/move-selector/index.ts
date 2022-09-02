@@ -80,6 +80,11 @@ function initMoveSelector() {
             .unselected{
                opacity: 0.5;
             }
+            @media screen and (min-width: 400px){
+               .container{
+                  justify-content: space-between;
+               }
+            }
             `;
 
             container.append(piedra, papel, tijera);

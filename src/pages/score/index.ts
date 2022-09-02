@@ -78,6 +78,22 @@ function mountScore(root) {
         text-align: end;
         font-size: 45px;
     }
+    @media screen and (min-width: 400px){
+        .star{
+            max-width: 20vw;
+        }
+        .score{
+            max-width:20vw;
+            
+        }
+        .score__container > span{
+            display:block;
+        }
+        button-comp{
+            width:20vw;
+            
+        }
+     }
     `;
 
    container.append(star, score, button);

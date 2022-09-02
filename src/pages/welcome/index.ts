@@ -22,6 +22,17 @@ function mountWelcome(root) {
       justify-content: space-between;
       gap: 11vh;
    }
+   @media screen and (min-width: 400px){
+      .container{
+         width: 375px;
+      }
+      button-comp{
+         width: 100%
+      }
+      move-selector-comp{
+         width: 100%
+      }
+   }
    `;
 
    container.append(title, button, moveSelector);
