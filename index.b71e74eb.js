@@ -549,75 +549,7 @@ var _state = require("./state");
     (0, _router.handleRoute)(location.pathname);
 })();
 
-},{"./components/title":"iClsj","./components/button":"dZaQH","./components/counter":"9ZXz4","./components/move-selector":"fGDAL","./components/subtitle":"2LuaI","./router":"4QFWt","./state":"1Yeju"}],"iClsj":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "initTitle", ()=>initTitle);
-function initTitle() {
-    class Title extends HTMLElement {
-        constructor(){
-            super();
-        }
-        shadow = this.attachShadow({
-            mode: "open"
-        });
-        connectedCallback() {
-            if (this.isConnected) {
-                const div = document.createElement("div");
-                const content = document.createElement("h1");
-                const style = document.createElement("style");
-                content.innerHTML = this.textContent || "Un titulo";
-                style.textContent = `
-                h1{
-                color: #009048;
-                font-size:80px;
-                margin: 0;
-               }
-               
-               h1>span.ligth{
-                  color: #91CCAF;
-                  
-                }
-                `;
-                div.append(content);
-                this.shadow.append(div, style);
-            }
-        }
-    }
-    customElements.define("title-comp", Title);
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"dZaQH":[function(require,module,exports) {
+},{"./components/button":"dZaQH","./components/counter":"9ZXz4","./components/move-selector":"fGDAL","./components/subtitle":"2LuaI","./components/title":"iClsj","./router":"4QFWt","./state":"1Yeju"}],"dZaQH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initButton", ()=>initButton);
@@ -747,7 +679,37 @@ function mountWelcome(root) {
     root.append(container, style);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c8fMJ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"c8fMJ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "mountInstructions", ()=>mountInstructions);
@@ -823,7 +785,7 @@ function mountPlay(root) {
     root.append(container, style);
 }
 
-},{"../../state":"1Yeju","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../router":"4QFWt"}],"1Yeju":[function(require,module,exports) {
+},{"../../router":"4QFWt","../../state":"1Yeju","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1Yeju":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "state", ()=>state);
@@ -1253,6 +1215,44 @@ function initSubtitle() {
         }
     }
     customElements.define("subtitle-comp", Subtitle);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iClsj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initTitle", ()=>initTitle);
+function initTitle() {
+    class Title extends HTMLElement {
+        constructor(){
+            super();
+        }
+        shadow = this.attachShadow({
+            mode: "open"
+        });
+        connectedCallback() {
+            if (this.isConnected) {
+                const div = document.createElement("div");
+                const content = document.createElement("h1");
+                const style = document.createElement("style");
+                content.innerHTML = this.textContent || "Un titulo";
+                style.textContent = `
+                h1{
+                color: #009048;
+                font-size:80px;
+                margin: 0;
+               }
+               
+               h1>span.ligth{
+                  color: #91CCAF;
+                  
+                }
+                `;
+                div.append(content);
+                this.shadow.append(div, style);
+            }
+        }
+    }
+    customElements.define("title-comp", Title);
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["iJYvl","h7u1C"], "h7u1C", "parcelRequireca0a")
